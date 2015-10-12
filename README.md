@@ -4,7 +4,7 @@ gulp-framework
 This is a temporary repo that will soon be replacing SlabJS as version 1.0.  **This is a complete rewrite.** A significant amount of bloat, bugs, and other issues with SlabJS have been removed as a result.
 
 #####How to use this
-1. Clone/download this repo to a new project folder
+1. [Download](https://github.com/lucidfusion/gulp-framework/archive/master.zip) the contents of this repo to a new project folder
 2. `cd yourAwesomeProject`
 3. `npm install`
 4. `gulp setup` to automatically set up your web root and install compass, bootstrap, & font awesome
