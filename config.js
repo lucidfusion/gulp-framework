@@ -22,10 +22,11 @@ config.concat.css		= 'app.css';
 
 // Output (web) directories
 config.web.root			= 'httpdocs';
-config.web.assets		= config.web.root + '/assets';
+config.web.assets		= config.web.root + '/assets'; // For Wordpress change to: config.web.root + '/wp-content/themes/yourawesometheme';
 config.web.js			= config.web.assets + '/js';
 config.web.css			= config.web.assets + '/css';
 config.web.fonts		= config.web.assets + '/fonts';
 config.web.images		= config.web.assets + '/images';
+config.web.templates	= ''; // For Wordpress, change to: config.web.assets + '/';
 
 module.exports = config;

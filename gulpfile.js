@@ -71,7 +71,25 @@ gulp.task('watch', ['sass'], function() {
 	browserSync.init(bs_config);
     
     gulp.watch(config.src.sass + '/**/*.{sass,scss}', ['sass']);
-    gulp.watch(config.src.templates + '/**/*.{html,php}').on('change', browserSync.reload);
+	
+	// Watch php/html files
+	if (config.web.templates == '') {
+		 gulp.watch(config.src.templates + '/**/*.{html,php}').on('change', browserSync.reload);
+	} else {
+		 gulp.watch(config.src.templates + '/**/*.{html,php}').on('change', function(event) {
+			if (event.type == 'deleted') {
+				// If an html/php file is deleted from src templates, delete from web templates
+				var file = event.path.split(config.src.templates)[1];
+				gulp.src(config.web.templates + file)
+					.pipe(rimraf({force: true}));
+			} else {
+				// If an html/php file is changed or added, move it to web templates
+				gulp.src(event.path)
+					.pipe(gulp.dest(config.web.templates));
+			}
+		 });	
+	}	
+   
     gulp.watch(config.web.root + '/**/*.{html,php}').on('change', browserSync.reload);
     
     // Watch image changes in src and copy to www
@@ -160,6 +178,11 @@ gulp.task('compass', function() {
 });
 
 gulp.task('setup', ['bootstrap', 'font-awesome', 'compass'], function() {
+	if (config.web.templates != '') {
+		gulp.src(config.src.templates + '/**/*.{html,php}')
+			.pipe(gulp.dest(config.web.templates));
+	}
+	
     gulp.src(config.src.images + '/**/*')
         .pipe(gulp.dest(config.web.images))
         .pipe(imagemin({

@@ -1,7 +1,31 @@
 body {
-	background: darken(white, 10%);
+	background: darken(white, 5%);
 }
 
-.fa {
-	font-size: 30px;
+.divider {
+	height: 30px;
+	margin-bottom: 30px;
+	border-bottom: 1px solid #ccc;
+}
+
+.test-icons {
+	.fa {
+		font-size: 30px;
+	}
+}
+
+.filetree {
+	ul {
+		list-style-type: none;
+	}
+	
+	&.comparison {
+		li {
+			color: #888;
+			
+			&.diff {
+				color: #000;	
+			}
+		}
+	}
 }

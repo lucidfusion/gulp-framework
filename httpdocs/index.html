@@ -10,12 +10,134 @@
 
 <div class="container">
 	<div class="row">
+		<div class="col-sm-12">
+			<h1>OMG IT WORKS!</h1>
+			<p class="lead">Congratulations, you didn't screw anything up...yet <i class="fa fa-smile-o"></i></p>
+			<p>You can make changes to the sass, javascript, and images by heading on over to the <b>./src</b> folder.  You can modify this page directly in <b>./httpdocs/index.html</b>.  Never manually add or remove files from <b>./httpdocs/assets</b>.  The CSS, JS, images, etc, in there are all automatically generated for you from <b>./src</b>, so they'll just get overwritten.</p>
+			
+			<div class="divider"></div>
+			
+			<p class="lead">If you're going to be using a CMS, here's the deal:</p>
+			<h3>ExpressionEngine</h3>
+			<p>By default, the server will watch <b>./src/templates</b>.  Just set the path to the templates folder in your EE config file:</p>
+			<ol>
+				<li>Create a (or move your existing) <b>templates</b> folder in <b>./src</b></li>
+				<li>Open <b>./system/expressionengine/config/config.php</b> and add (or modify) this line before "// END EE config items" around line 20-30:<br><b>$config['tmpl_file_basepath'] = realpath('../src/templates/') . '/';</b></li>
+				<li>Run <b>gulp</b> to launch the server. Profit.</li>
+			</ol>
+			<p><b>Your directory structure should look like this if you installed EE correctly</b>:</p>
+			<div class="filetree comparison">
+				<ul>
+					<li><i class="fa fa-file-o"></i> config.js</li>
+					<li><i class="fa fa-file-o"></i> gruntfile.js</li>
+					<li><i class="fa fa-folder-open"></i> httpdocs
+						<ul>
+							<li class="diff"><i class="fa fa-file-o"></i> .htaccess</li>
+							<li class="diff"><i class="fa fa-file-o"></i> admin.php</li>
+							<li><i class="fa fa-folder"></i> assets</li>
+							<li class="diff"><i class="fa fa-folder"></i> images</li>
+							<li class="diff"><i class="fa fa-file-o"></i> index.php</li>
+							<li class="diff"><i class="fa fa-folder"></i> themes</li>							
+						</ul>
+					</li>
+					<li><i class="fa fa-folder"></i> node_modules</li>
+					<li><i class="fa fa-file-o"></i> package.json</li>
+					<li><i class="fa fa-file-o"></i> README.md</li>
+					<li><i class="fa fa-folder-open"></i> src
+						<ul>
+							<li><i class="fa fa-folder"></i> images</li>
+							<li><i class="fa fa-folder"></i> js</li>
+							<li><i class="fa fa-folder"></i> sass</li>
+							<li class="diff"><i class="fa fa-folder-open"></i> templates
+								<ul>
+									<li class="diff"><i class="fa fa-folder-open"></i> default_site
+										<ul>
+											<li class="diff"><i class="fa fa-folder"></i> ...</li>
+											<ul>
+												<li class="diff"><i class="fa fa-file-o"></i> EE serves html/php straight from here<li>
+											</ul>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							
+						</ul>
+					</li>
+					<li class="diff"><i class="fa fa-folder"></i> system</li>
+				</ul>
+			</div>
+			
+			<div class="divider"></div>
+			
+			<h3>WordPress</h3>
+			<p>If you're using WordPress, I'm sorry. <i class="fa fa-frown-o"></i> If you haven't quit your job already, here's how to set it up:</p>
+			<ol>
+				<li>Create a new theme folder (if it doesn't already exist) such as <b>yourawesometheme</b> in <b>./httpdocs/wp-content/themes</b></li>
+				<li>Open <b>./config.js</b> and update:<br>
+				line 25 to: <b>config.web.assets = config.web.root + '/wp-content/themes/yourawesometheme';</b><br>
+				line 30 to: <b>config.web.templates	= 'config.web.assets + '/';</b>
+				<li>Delete your <b>./httpdocs/assets</b> folder and rerun <b>gulp setup</b></li>
+				<li>Run <b>gulp</b> to launch the server. Profit.</li>
+			</ol>			
+			<p><b>Your directory structure should look like this if you installed WP correctly</b>:</p>
+			<div class="filetree comparison">
+				<ul>
+					<li><i class="fa fa-file-o"></i> config.js</li>
+					<li><i class="fa fa-file-o"></i> gruntfile.js</li>
+					<li><i class="fa fa-folder-open"></i> httpdocs
+						<ul>
+							<li class="diff"><i class="fa fa-file-o"></i> .htaccess</li>
+							<li class="diff"><i class="fa fa-file-o"></i> index.php</li>
+							<li class="diff"><i class="fa fa-file-o"></i> ...</li>
+							<li class="diff"><i class="fa fa-folder"></i> wp-admin</li>
+							<li class="diff"><i class="fa fa-folder-open"></i> wp-content
+								<ul>
+									<li class="diff"><i class="fa fa-folder-open"></i> themes
+										<ul>
+											<li class="diff"><i class="fa fa-folder-open"></i> yourawesometheme
+												<ul>
+													<li><i class="fa fa-folder"></i> css</li>
+													<li><i class="fa fa-folder"></i> fonts</li>
+													<li><i class="fa fa-folder"></i> images</li>
+													<li><i class="fa fa-folder"></i> js</li>
+													<li class="diff"><i class="fa fa-folder"></i> any folders you made in <b>./src/templates</b></li>
+													<li class="diff"><i class="fa fa-file-o"></i> any php/html files from <b>./src/templates</b></li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class="diff"><i class="fa fa-file-o"></i> ...</li>						
+						</ul>
+					</li>
+					<li><i class="fa fa-folder"></i> node_modules</li>
+					<li><i class="fa fa-file-o"></i> package.json</li>
+					<li><i class="fa fa-file-o"></i> README.md</li>
+					<li><i class="fa fa-folder-open"></i> src
+						<ul>
+							<li class="diff"><i class="fa fa-folder-open"></i> templates
+								<ul>
+									<li class="diff"><i class="fa fa-file-o"></i> all folders and php/html files placed here get synced to <b>yourawesometheme</b> to be served by WP</li>
+								</ul>								
+							</li>							
+							<li><i class="fa fa-folder"></i> images</li>
+							<li><i class="fa fa-folder"></i> js</li>
+							<li><i class="fa fa-folder"></i> sass</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="divider"></div>
+	<div class="row">
 		<div class="col-sm-4">
 			<div id="es6"></div>
 			<div id="hellos"></div>
 			<div id="goodbyes"></div>
 		</div>
-		<div class="col-sm-4">
+		<div class="col-sm-4 test-icons">
 			<p><b>Font Awesome works</b>:</p>
 			<i class="fa fa-facebook"></i>
 			<i class="fa fa-twitter"></i>
