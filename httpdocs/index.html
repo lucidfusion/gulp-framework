@@ -25,7 +25,7 @@
 				<li>Open <b>./system/expressionengine/config/config.php</b> and add (or modify) this line before "// END EE config items" around line 20-30:<br><b>$config['tmpl_file_basepath'] = realpath('../src/templates/') . '/';</b></li>
 				<li>Run <b>gulp</b> to launch the server. Profit.</li>
 			</ol>
-			<p><b>Your directory structure should look like this if you installed EE correctly</b>:</p>
+			<p><b>Your directory structure should look like this if you installed EE correctly with the system folder located outside the web-viewable document root</b></b>:</p>
 			<div class="filetree comparison">
 				<ul>
 					<li><i class="fa fa-file-o"></i> config.js</li>
@@ -131,6 +131,11 @@
 		</div>
 	</div>
 	<div class="divider"></div>
+	<div class="row">
+		<div class="col-sm-12">
+			<h1 style="margin-bottom: 30px; margin-top: 0;">Check out these super fun tests:</h1>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-sm-4">
 			<div id="es6"></div>
