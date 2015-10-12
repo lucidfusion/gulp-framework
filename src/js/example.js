@@ -10,6 +10,8 @@ export function sayGoodbye(name = 'Sam') {
 
 /* In ES5 this would look like:
 
+var $ = require('jquery');
+
 module.exports = {
 
 	sayHello: function(name) {
