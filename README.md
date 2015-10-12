@@ -5,10 +5,12 @@ This is a temporary repo that will soon be replacing SlabJS as version 1.0.  **T
 
 #####How to use this
 If you haven't already, do yourself a favor and install **nvm** and use it to install **Node 4**:
+
 1. `curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash`
 2. `nvm install node && nvm alias default node`
 
 **To install the framework**:
+
 1. [Download](https://github.com/lucidfusion/gulp-framework/archive/master.zip) the contents of this repo to a new project folder
 2. `cd yourAwesomeProject`
 3. `npm install`
