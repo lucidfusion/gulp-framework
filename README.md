@@ -1,6 +1,6 @@
 gulp-framework
 ============
-#####Lucid Fusion's gulp automation framework.
+#####Lucid Fusion's gulp automation framework with full support for ExpressionEngine and WordPress.
 This is a temporary repo that will soon be replacing SlabJS as version 1.0.  **This is a complete rewrite.** A significant amount of bloat, bugs, and other issues with SlabJS have been removed as a result.
 
 #####How to use this
