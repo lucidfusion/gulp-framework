@@ -1,0 +1,63 @@
+{
+  "name": "lf-gulp",
+  "version": "1.0.0",
+  "description": "Lucid Fusion's gulp automation framework.",
+  "main": "config.js",
+  "dependencies": {
+    "babelify": "^6.3.0",
+    "browser-sync": "^2.9.10",
+    "browserify": "^11.2.0",
+    "exorcist": "^0.4.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.2",
+    "gulp-rimraf": "^0.2.0",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-uglify": "^1.4.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.6",
+    "imagemin-pngquant": "^4.2.0",
+    "jquery": "^2.1.4",
+    "vinyl-buffer": "^1.0.0",
+    "watchify": "^3.4.0",
+    "vinyl-source-stream": "^1.1.0",
+    "bootstrap-sass": "^3.3.5",
+    "font-awesome": "^4.4.0",
+    "compass-mixins": "^0.12.7",
+    "require-dir": "^0.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucidfusion/lf-gulp.git"
+  },
+  "keywords": [
+    "gulp",
+    "browsersync",
+    "es6",
+    "babel",
+    "browserify",
+    "watchify",
+    "sourcemaps",
+    "uglify",
+    "sass",
+    "minifycss",
+    "imagemin",
+    "bootstrap",
+    "bootstrap-sass",
+    "font-awesome",
+    "jquery"
+  ],
+  "author": "Ben Fried",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucidfusion/lf-gulp/issues"
+  },
+  "homepage": "https://github.com/lucidfusion/lf-gulp#readme"
+}
