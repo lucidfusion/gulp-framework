@@ -94,35 +94,41 @@ gulp.task('watch', ['sass'], function() {
     
     // Watch image changes in src and copy to www
     gulp.watch(config.src.images + '/**/*').on('change', function(event) {
+		var image = event.path.split('/');
+		image = image[(image.length - 1)];
+		
         if (event.type == 'deleted') {
             // If an image is deleted from src, delete from web root
-            var image = event.path.split(config.src.images)[1];
-            gulp.src(config.web.images + image)
+            gulp.src(event.path.replace(config.src.images, config.web.images))
                 .pipe(rimraf({force: true}))
                 .pipe(browserSync.stream());
         } else {
             // If an image is changed or added, stream it to web root, then the next watcher will see it and compress it
             gulp.src(event.path)
-                .pipe(gulp.dest(config.web.images))
-                .pipe(browserSync.stream())
-                .pipe(notify({ message: '<%= file.relative %> queued for compression' }));
+                .pipe(gulp.dest(event.path.replace(config.src.images, config.web.images).replace(image, '')))
+                .pipe(browserSync.stream());
         }
     });
     
     // This watcher checks for web root image change and compresses the images in the background
-    gulp.watch(config.web.images + '/**/*').on('change', function(event) {
-        if (event.type == 'added') {
-            gulp.src(event.path)    
-                .pipe(imagemin({
-                    progressive: true,
-                    svgoPlugins: [{removeViewBox: false}],
-                    use: [pngquant()]
-                }))
-                .pipe(gulp.dest(config.web.images))
-                .pipe(browserSync.stream())
-                .pipe(notify({ message: '<%= file.relative %> compressed' }));
-        }
-    });
+    if (config.compress) {
+		gulp.watch(config.web.images + '/**/*').on('change', function(event) {
+			var image = event.path.split('/');
+			image = image[(image.length - 1)];
+
+			if (event.type == 'added') {
+				gulp.src(event.path)    
+					.pipe(imagemin({
+						progressive: true,
+						svgoPlugins: [{removeViewBox: false}],
+						use: [pngquant()]
+					}))
+					.pipe(gulp.dest(event.path.replace(image, '')))
+					.pipe(browserSync.stream())
+					.pipe(notify({ message: '<%= file.relative %> compressed' }));
+			}
+		});
+	}
     
 });
 

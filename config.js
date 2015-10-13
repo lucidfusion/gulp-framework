@@ -29,4 +29,7 @@ config.web.fonts		= config.web.assets + '/fonts';
 config.web.images		= config.web.assets + '/images';
 config.web.templates	= ''; // For Wordpress, change to: config.web.assets + '/';
 
+// Automatically compress images?
+config.compress = false;
+
 module.exports = config;
