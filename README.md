@@ -32,7 +32,7 @@ By default your source folder will be `./src` and your web root will be served f
 
 ####New features
 * **Full ES6 support.** With babel for use in your front-end JS using Browserify.
-* **Automatic image compression.**  As images are added to your source directory, they are automatically compressed and piped to your web assets folder.
+* **Automatic image compression.**  You can turn this on by editing `./config.js` and setting `config.compress = true;`.  By default, it is turned off due to some buggy behavior.  When it's more stable, it will be enabled by default.  To manually compress your images, simply type `gulp production`.
 
 ####Significant improvements
 * npm installs should no longer hang or fail with build errors.
